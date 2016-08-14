@@ -21,6 +21,8 @@ pages:
     - 'Call Recordings': 'calllog_call-recordings.md'
     - 'Call Log Synchronization': 'calllog_sync.md'
     - 'Development Concerns': 'calllog_development-concerns.md'
+- 'Data Archival':
+    - 'Introduction': 'data_archival_introduction.md'
 - 'Working with Messages': 'messages.md'
 - 'Making Calls': 'making_calls.md'
 - 'Conference Calling': 'conference.md'
