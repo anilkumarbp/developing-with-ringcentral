@@ -1,12 +1,12 @@
 
 ## Common Use Case(s)
 
-* Public Communications
+### Public Communications
 
     A public manufacturer needs to comply with the SOX requirements and retains all the electronic data. The company decides to use Dropbox Integration, which allowed them to automatically archive electronic communications, such as call recordings, voicemails, text messages, and faxes.
     The integration app aided the company in SOX compliance.
 
-* Storing day-to-day Call Recordings
+### Storing day-to-day Call Recordings
 
     A financial services company would be involved in storing the call-recordings for compliance.But would be limited with the storage capacity on premise.
 
@@ -15,17 +15,15 @@
 
 ### RingCentral Data Retention Policies
 
-    RingCentral does not retain your [Call Recordings](https://developers.ringcentral.com/api-docs/latest/index.html#!#RefCallLogInfo.html) data indefinitely. This is one of the driving factors that cause developers to author integrations with RingCentral.
-
-    The data retention policies for RingCentral accounts differ if your account is a HIPAA-Compliant, or Non-HIPAA-Compliant account. There are multiple ways you can download your call log data, please refer to the official [RingCentral KB Article on Message Storage and Data Retention](http://success.ringcentral.com/articles/en_US/RC_Knowledge_Article/2178#2) for comprehensive information about your account.
+RingCentral does not retain your [Call Recordings](https://developers.ringcentral.com/api-docs/latest/index.html#!#RefCallLogInfo.html) data indefinitely. This is one of the driving factors that cause developers to author integrations with RingCentral.
+The data retention policies for RingCentral accounts differ if your account is a HIPAA-Compliant, or Non-HIPAA-Compliant account. There are multiple ways you can download your call log data, please refer to the official [RingCentral KB Article on Message Storage and Data Retention](http://success.ringcentral.com/articles/en_US/RC_Knowledge_Article/2178#2) for comprehensive information about your account.
 
 ### Developer Implications
 
-    Developers who are building monitoring and dashboard solutions which provide historical analysis features will need to pay close attention to how RingCentral Call Log Data Retention Policy.
+Developers who are building monitoring and dashboard solutions which provide historical analysis features will need to pay close attention to how RingCentral Call Log Data Retention Policy.
+For instance, if your application or integration requires the ability to analyze Call Log data which goes beyond the current storage threshold, you will want to download your Call Log data at a regular interval into persistent storage for data-crunching and performance reasons.
+The below information about Data Retention is accurate as of (2016-06-06), please refer to the KB article referenced above for the most up-to-date information about RingCentral Data Retention policies.
 
-    For instance, if your application or integration requires the ability to analyze Call Log data which goes beyond the current storage threshold, you will want to download your Call Log data at a regular interval into persistent storage for data-crunching and performance reasons.
-
-    The below information about Data Retention is accurate as of (2016-06-06), please refer to the KB article referenced above for the most up-to-date information about RingCentral Data Retention policies.
 
 ### Account Data Retention Table for Non-HIPAA Accounts
 
@@ -67,27 +65,27 @@ This is a very important distinction for developers which will impact applicatio
 
 ### Configuration Requirements
 
-    * What is the hourly interval/ range when they would like to pull down the recordings
-    * What is the approximate call-recordgins count per day
-    * The total number of accounts and the details
+* What is the hourly interval/ range when they would like to pull down the recordings
+* What is the approximate call-recordgins count per day
+* The total number of accounts and the details
 
 ## Needs-Driven Solution Architecture
 
-    ### Retrieving a call recording as and when it is created:
+### Retrieving a call recording as and when it is created:
 
-    1.Create extension map: direct_number to extension_info by downloading all extensions with possible phone-number endpoint(?) and create direct_number lookup for the to.phoneNumber or from.phoneNumber.
-    2.Call call-log API, for each calllog.record:
-    3.Where direction=Inbound, classify using calllog.record.to.phoneNumber
-    4.Where direction=Outbound, classify using calllog.record.from.phoneNumber
-    5.Use x.phoneNumber to look up extension to get derive store_name for folder name
-    6.Use calllog.record.startTime.YYYY-MM-DD as date_called folder name
-    7.Filename = calllog.record.startTime + ‘_’ + recordingId + ‘.mp3’ or ‘.wav’ based Content-Type headerlrc
+1.Create extension map: direct_number to extension_info by downloading all extensions with possible phone-number endpoint(?) and create direct_number lookup for the to.phoneNumber or from.phoneNumber.
+2.Call call-log API, for each calllog.record:
+3.Where direction=Inbound, classify using calllog.record.to.phoneNumber
+4.Where direction=Outbound, classify using calllog.record.from.phoneNumber
+5.Use x.phoneNumber to look up extension to get derive store_name for folder name
+6.Use calllog.record.startTime.YYYY-MM-DD as date_called folder name
+7.Filename = calllog.record.startTime + ‘_’ + recordingId + ‘.mp3’ or ‘.wav’ based Content-Type headerlrc
 
-    ### Retrieving call recordings at the end of a business day:
+### Retrieving call recordings at the end of a business day:
 
-    1.Retrieving the Call Logs specifying the `dateFrom` and `dateTo` be on a 24hr interval.
-    2.Setting the appropriate offset with UTC, as the Call-Logs returned from API are in the UTC TimeStamp.
-    3.Filtering the call-logs to contain only Call Recordings.
-    4.Download the call recordings and make sure the API Rate limits are not throttled.
+1.Retrieving the Call Logs specifying the `dateFrom` and `dateTo` be on a 24hr interval.
+2.Setting the appropriate offset with UTC, as the Call-Logs returned from API are in the UTC TimeStamp.
+3.Filtering the call-logs to contain only Call Recordings.
+4.Download the call recordings and make sure the API Rate limits are not throttled.
 
 ## Persistent Storage Solutions
