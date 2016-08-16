@@ -3,12 +3,12 @@
 
 ### Public Communications
 
-    A public manufacturer needs to comply with the SOX requirements and retains all the electronic data. The company decides to use Dropbox Integration, which allowed them to automatically archive electronic communications, such as call recordings, voicemails, text messages, and faxes.
-    The integration app aided the company in SOX compliance.
+A public manufacturer needs to comply with the SOX requirements and retains all the electronic data. The company decides to use Dropbox Integration, which allowed them to automatically archive electronic communications, such as call recordings, voicemails, text messages, and faxes.
+The integration app aided the company in SOX compliance.
 
 ### Storing day-to-day Call Recordings
 
-    A financial services company would be involved in storing the call-recordings for compliance.But would be limited with the storage capacity on premise.
+A financial services company would be involved in storing the call-recordings for compliance.But would be limited with the storage capacity on premise.
 
 
 ## Development Concern(s)
@@ -73,19 +73,19 @@ This is a very important distinction for developers which will impact applicatio
 
 ### Retrieving a call recording as and when it is created:
 
-1.Create extension map: direct_number to extension_info by downloading all extensions with possible phone-number endpoint(?) and create direct_number lookup for the to.phoneNumber or from.phoneNumber.
-2.Call call-log API, for each calllog.record:
-3.Where direction=Inbound, classify using calllog.record.to.phoneNumber
-4.Where direction=Outbound, classify using calllog.record.from.phoneNumber
-5.Use x.phoneNumber to look up extension to get derive store_name for folder name
-6.Use calllog.record.startTime.YYYY-MM-DD as date_called folder name
-7.Filename = calllog.record.startTime + ‘_’ + recordingId + ‘.mp3’ or ‘.wav’ based Content-Type headerlrc
+1. Create extension map: direct_number to extension_info by downloading all extensions with possible phone-number endpoint(?) and create direct_number lookup for the to.phoneNumber or from.phoneNumber.
+2. Call call-log API, for each calllog.record:
+3. Where direction=Inbound, classify using calllog.record.to.phoneNumber
+4. Where direction=Outbound, classify using calllog.record.from.phoneNumber
+5. Use x.phoneNumber to look up extension to get derive store_name for folder name
+6. Use calllog.record.startTime.YYYY-MM-DD as date_called folder name
+7. Filename = calllog.record.startTime + ‘_’ + recordingId + ‘.mp3’ or ‘.wav’ based Content-Type headerlrc
 
 ### Retrieving call recordings at the end of a business day:
 
-1.Retrieving the Call Logs specifying the `dateFrom` and `dateTo` be on a 24hr interval.
-2.Setting the appropriate offset with UTC, as the Call-Logs returned from API are in the UTC TimeStamp.
-3.Filtering the call-logs to contain only Call Recordings.
-4.Download the call recordings and make sure the API Rate limits are not throttled.
+1. Retrieving the Call Logs specifying the `dateFrom` and `dateTo` be on a 24hr interval.
+2. Setting the appropriate offset with UTC, as the Call-Logs returned from API are in the UTC TimeStamp.
+3. Filtering the call-logs to contain only Call Recordings.
+4. Download the call recordings and make sure the API Rate limits are not throttled.
 
 ## Persistent Storage Solutions
