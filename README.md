@@ -18,7 +18,8 @@ This guide is intended to help developers build applications using the RingCentr
     * [Development Concerns](docs/calllog_development-concerns.md)
 * Data Archival:
     * [Introduction](docs/data_archival_introduction.md)
-    * [Integration Use Cases and Development Concerns](docs/data_archival_integration_use_cases.md)            
+    * [Integration Use Cases and Development Concerns](docs/data_archival_integration_use_cases.md) 
+    * [Data Locations](docs/data_archival_data_locations.md)               
 * [Working with Messages](docs/messages.md)
 * [Making Calls](docs/making_calls.md)
 * [Conference Calling](docs/conference.md)
