@@ -19,7 +19,8 @@ This guide is intended to help developers build applications using the RingCentr
 * Data Archival:
     * [Introduction](docs/data_archival_introduction.md)
     * [Integration Use Cases and Development Concerns](docs/data_archival_integration_use_cases.md) 
-    * [Data Locations](docs/data_archival_data_locations.md)               
+    * [Data Locations](docs/data_archival_data_locations.md)
+    * [Defining Application](docs/data_archival_defining_application.md)               
 * [Working with Messages](docs/messages.md)
 * [Making Calls](docs/making_calls.md)
 * [Conference Calling](docs/conference.md)

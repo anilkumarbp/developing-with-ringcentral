@@ -25,6 +25,7 @@ pages:
     - 'Introduction': 'data_archival_introduction.md'
     - 'Integration Use Cases and Concerns': 'data_archival_integration_use_cases.md'
     - 'Data Locations':'data_archival_data_locations.md'
+    - 'Defining Application':'data_archival_defining_application.md'
 - 'Working with Messages': 'messages.md'
 - 'Making Calls': 'making_calls.md'
 - 'Conference Calling': 'conference.md'
